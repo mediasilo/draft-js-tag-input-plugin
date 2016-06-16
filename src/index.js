@@ -90,7 +90,7 @@ const createMentionPlugin = (config = {}) => {
     callbacks,
     theme,
     store,
-    entityMutability: config.entityMutability ? config.entityMutability : 'SEGMENTED',
+    entityMutability: config.entityMutability ? config.entityMutability : 'IMMUTABLE',
     positionSuggestions,
     newSuggestionText
   };
