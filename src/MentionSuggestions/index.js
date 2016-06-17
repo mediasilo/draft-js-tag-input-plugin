@@ -154,9 +154,10 @@ export default class MentionSuggestions extends Component {
 
   onSearchChange = (editorState, selection) => {
     const { word } = getSearchText(editorState, selection);
-    if (this.lastSearchValue !== word) {
-      this.lastSearchValue = word;
-      this.props.onSearchChange({ value: word });
+    const searchValue = word.trim();
+    if (this.lastSearchValue !== searchValue) {
+      this.lastSearchValue = searchValue;
+      this.props.onSearchChange({ value: searchValue });
     }
   };
 
