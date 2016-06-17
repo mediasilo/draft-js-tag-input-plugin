@@ -20,7 +20,7 @@ const getSearchText = (editorState, selection) => {
   );
 
   return {
-    word: blockText.substr(lastEntityIndex + 1),
+    word: blockText.substr(lastEntityIndex),
     begin: lastEntityIndex > 0 ? lastEntityIndex + 1 : lastEntityIndex,
     end: anchorOffset + 1,
   };
