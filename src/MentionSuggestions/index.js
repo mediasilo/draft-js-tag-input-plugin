@@ -234,7 +234,7 @@ export default class MentionSuggestions extends Component {
         this.props.store.getEditorState(),
         fromJS({
           name: newTagText,
-          link: 'https://twitter.com/addtaglink'
+          link: ''
         }),
         this.props.entityMutability,
       );
