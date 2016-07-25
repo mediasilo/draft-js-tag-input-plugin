@@ -311,7 +311,7 @@ export default class MentionSuggestions extends Component {
       return <noscript />;
     }
 
-    const { theme = {}, newSuggestionText } = this.props;
+    const { theme = {}, newSuggestionText, onSearchChange, suggestions, ariaProps, callbacks, store, entityMutability, positionSuggestions, ...other } = this.props;
 
     const emptyMention = fromJS({
       name: newSuggestionText,
@@ -319,7 +319,7 @@ export default class MentionSuggestions extends Component {
 
     return (
       <div
-        {...this.props}
+        {...other}
         className={ theme.mentionSuggestions }
         role="listbox"
         id={ `mentions-list-${this.key}` }
