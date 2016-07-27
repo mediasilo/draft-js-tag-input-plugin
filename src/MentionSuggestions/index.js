@@ -100,9 +100,9 @@ export default class MentionSuggestions extends Component {
     ));
 
     // if all leaves are undefined the popover should be removed
-    // if (leaves.every((leave) => leave === undefined)) {
-    //   return removeList();
-    // }
+    if (leaves.every((leave) => leave === undefined)) {
+      return removeList();
+    }
 
     // Checks that the cursor is after the @ character but still somewhere in
     // the word (search term). Setting it to allow the cursor to be left of
@@ -114,7 +114,7 @@ export default class MentionSuggestions extends Component {
         anchorOffset > start + 1 && anchorOffset <= end // @ is in the text or at the end
       ));
 
-    // if (selectionIsInsideWord.every((isInside) => isInside === false)) return removeList();
+    if (selectionIsInsideWord.every((isInside) => isInside === false)) return removeList();
 
     this.activeOffsetKey = selectionIsInsideWord
       .filter(value => value === true)
