@@ -72,4 +72,6 @@
   box-sizing: border-box;
   -webkit-transform: scale(1);
           transform: scale(1);
+  max-height: 200px;
+  overflow: auto;
 }

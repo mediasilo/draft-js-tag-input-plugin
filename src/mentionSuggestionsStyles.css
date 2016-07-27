@@ -15,4 +15,6 @@
   flex-direction: column;
   box-sizing: border-box;
   transform: scale(1);
+  max-height: 200px;
+  overflow: auto;
 }
