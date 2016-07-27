@@ -114,7 +114,7 @@ export default class MentionSuggestions extends Component {
         anchorOffset > start + 1 && anchorOffset <= end // @ is in the text or at the end
       ));
 
-    if (selectionIsInsideWord.every((isInside) => isInside === false)) return removeList();
+    // if (selectionIsInsideWord.every((isInside) => isInside === false)) return removeList();
 
     this.activeOffsetKey = selectionIsInsideWord
       .filter(value => value === true)
