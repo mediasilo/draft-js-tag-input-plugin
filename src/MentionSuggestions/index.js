@@ -100,9 +100,9 @@ export default class MentionSuggestions extends Component {
     ));
 
     // if all leaves are undefined the popover should be removed
-    if (leaves.every((leave) => leave === undefined)) {
-      return removeList();
-    }
+    // if (leaves.every((leave) => leave === undefined)) {
+    //   return removeList();
+    // }
 
     // Checks that the cursor is after the @ character but still somewhere in
     // the word (search term). Setting it to allow the cursor to be left of
