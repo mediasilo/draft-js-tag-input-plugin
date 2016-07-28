@@ -3,12 +3,12 @@
 }
 
 .mentionSuggestionsEntry:active {
-  background-color: #cce7ff;
+  background-color: #edf1f2;
 }
 
 .mentionSuggestionsEntryFocused {
   composes: mentionSuggestionsEntry;
-  background-color: #e6f3ff;
+  background-color: #edf1f2;
 }
 
 .mentionSuggestionsEntryText {
