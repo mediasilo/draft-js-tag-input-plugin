@@ -34,18 +34,15 @@ const positionSuggestions = ({ decoratorRect, popover, state, props }) => {
   const top = relativeRect.top + relativeRect.scrollTop;
 
   let transform;
-  let transition;
   if (state.isActive) {
     transform = 'scale(1)';
-    transition = 'all 0.25s cubic-bezier(.3,1.2,.2,1)';
   }
 
   return {
     left: `${left}px`,
     top: `${top}px`,
     transform,
-    transformOrigin: '1em 0%',
-    transition,
+    transformOrigin: '1em 0%'
   };
 };
 
