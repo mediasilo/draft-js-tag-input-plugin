@@ -29,16 +29,20 @@
     "react-dom": ">=0.14.0 || 15.0.0-rc"
   },
   "scripts": {
-    "clean": "../node_modules/.bin/rimraf lib",
+    "clean": "node_modules/rimraf/bin.js lib",
     "build": "npm run clean && npm run build:js && npm run build:css",
-    "build:js": "WEBPACK_CONFIG=$(pwd)/webpack.config.js BABEL_DISABLE_CACHE=1 BABEL_ENV=production NODE_ENV=production ../node_modules/.bin/babel --out-dir='lib' --ignore='__test__/*' src",
-    "build:css": "node ../scripts/concatCssFiles $(pwd) && ../node_modules/.bin/rimraf lib-css",
+    "build:js": "WEBPACK_CONFIG=$(pwd)/webpack.config.js BABEL_DISABLE_CACHE=1 BABEL_ENV=production NODE_ENV=production node_modules/babel-core/index.js --out-dir='lib' --ignore='__test__/*' src",
+    "build:css": "node ../scripts/concatCssFiles $(pwd) && node_modules/rimraf/bin.js lib-css",
     "prepublish": "npm run build"
   },
   "license": "MIT",
   "dependencies": {
+    "babel-core": "^6.18.2",
     "decorate-component-with-props": "^1.0.2",
     "find-with-regex": "^1.0.2",
     "union-class-names": "^1.0.0"
+  },
+  "devDependencies": {
+    "rimraf": "^2.5.4"
   }
 }
