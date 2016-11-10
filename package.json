@@ -31,7 +31,7 @@
   "scripts": {
     "clean": "node_modules/rimraf/bin.js lib",
     "build": "npm run clean && npm run build:js && npm run build:css",
-    "build:js": "WEBPACK_CONFIG=$(pwd)/webpack.config.js BABEL_DISABLE_CACHE=1 BABEL_ENV=production NODE_ENV=production node_modules/babel-core/index.js --out-dir='lib' --ignore='__test__/*' src",
+    "build:js": "WEBPACK_CONFIG=$(pwd)/webpack.config.js BABEL_DISABLE_CACHE=1 BABEL_ENV=production NODE_ENV=production babel --out-dir='lib' --ignore='__test__/*' src",
     "build:css": "node ../scripts/concatCssFiles $(pwd) && node_modules/rimraf/bin.js lib-css",
     "prepublish": "npm run build"
   },
@@ -43,6 +43,20 @@
     "union-class-names": "^1.0.0"
   },
   "devDependencies": {
-    "rimraf": "^2.5.4"
+    "autoprefixer": "^6.5.3",
+    "babel-cli": "^6.18.0",
+    "babel-core": "^6.18.2",
+    "babel-plugin-webpack-loaders": "^0.8.0",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.16.0",
+    "css-loader": "^0.25.0",
+    "draft-js": "^0.9.1",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "postcss-loader": "^1.1.1",
+    "react": "^15.3.2",
+    "rimraf": "^2.5.4",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.3"
   }
 }
