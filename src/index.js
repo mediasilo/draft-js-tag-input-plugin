@@ -81,6 +81,7 @@ const createMentionPlugin = (config = {}) => {
   // breaking change. 1px of an increased padding can break a whole layout.
   const {
     mentionPrefix = '',
+    mentionComponent,
     theme = defaultTheme,
     positionSuggestions = defaultPositionSuggestions,
     newSuggestionText = 'Add new'
@@ -99,7 +100,7 @@ const createMentionPlugin = (config = {}) => {
     decorators: [
       {
         strategy: mentionStrategy,
-        component: decorateComponentWithProps(Mention, { theme, mentionPrefix }),
+        component: decorateComponentWithProps(Mention, { theme, mentionPrefix, mentionComponent }),
       },
       {
         strategy: mentionSuggestionsStrategy,

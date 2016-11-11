@@ -2,29 +2,44 @@ import React from 'react';
 import { Entity } from 'draft-js';
 
 const Mention = (props) => {
-  const { entityKey, theme = {} } = props;
-  const { mention } = Entity.get(entityKey).getData();
+    const { entityKey,  theme = {}, mentionComponent } = props;
+    const { mention } = Entity.get(entityKey).getData();
 
-  if (mention.has('link')) {
-    return (
-      <a
-        href={ mention.get('link') }
-        className={ theme.mention }
-        spellCheck={ false }
-      >
-        { props.mentionPrefix }{ props.children }
-      </a>
+    const MentionLink = ({ mention, mentionPrefix, children, theme }) => (
+        <a
+            href={ mention.get('link') }
+            className={ theme.mention }
+            spellCheck={ false }
+        >
+            { mentionPrefix }{ children }
+        </a>
     );
-  }
 
-  return (
-    <span
-      className={ theme.mention }
-      spellCheck={ false }
-    >
-      { props.mentionPrefix }{ props.children }
-    </span>
-  );
+    const MentionText = ({ theme, mentionPrefix, children}) =>  (
+        <span
+          className={ theme.mention }
+          spellCheck={ false }
+        >
+          { mentionPrefix }{ children } 
+        </span>
+    );
+
+    const Component = (
+        mentionComponent || (mention.has('link') ? MentionLink : MentionText)
+    );
+
+
+
+    return (
+        <Component
+            entityKey={entityKey}
+            theme={theme}
+            mention={mention}
+            mentionPrefix={props.mentionPrefix}
+        >
+            { props.children }
+        </Component>
+    );
 };
 
 export default Mention;
