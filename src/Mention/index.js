@@ -20,7 +20,7 @@ const Mention = (props) => {
           className={ theme.mention }
           spellCheck={ false }
         >
-          { mentionPrefix }{ children }
+          { mentionPrefix }{ children } 
         </span>
     );
 
